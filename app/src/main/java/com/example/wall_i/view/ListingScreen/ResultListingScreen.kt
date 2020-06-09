@@ -45,7 +45,7 @@ class ResultListingScreen : AppCompatActivity(),onItemClick {
                         Toast.LENGTH_LONG
                     ).show()
                     ListRecyclerView.apply {
-                        layoutManager = StaggeredGridLayoutManager(2, 1)
+                        layoutManager = StaggeredGridLayoutManager(3, 1)
                         var data = DataSource.createDataSet(initListView(response.body()!!.imageList))
                         Ladapter = ListAdapter(data, this@ResultListingScreen)
                         adapter = Ladapter

@@ -1,4 +1,4 @@
-@file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+
 
 package com.example.wall_i.view.PreviewScreen
 
@@ -22,8 +22,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.wall_i.R
 import kotlinx.android.synthetic.main.activity_preview.*
 
+
 class Preview : AppCompatActivity() {
     private val STORAGE_PERMISSION_CODE: Int = 1000
+   // var url:Uri
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,13 +111,13 @@ class Preview : AppCompatActivity() {
     }
 
     fun onShareButtonClicked(link:String){
-        val shareIntent: Intent = Intent().apply {
+        var shareIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND
             putExtra(Intent.EXTRA_TEXT, "Hey Check this awsome image\n".plus(link))
-            putExtra(Intent.EXTRA_STREAM, link)
-            type = "image/jpeg"
-            type="text/plain"
+            //this.`package`="com.whatsapp"
+            type = "image/plain"
             flags=Intent.FLAG_GRANT_READ_URI_PERMISSION
+            flags=Intent.FLAG_GRANT_WRITE_URI_PERMISSION
 
         }
         startActivity(Intent.createChooser(shareIntent, resources.getText(R.string.share)))
